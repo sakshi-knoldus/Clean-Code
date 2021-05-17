@@ -1,7 +1,19 @@
 public class Solutions{
     static class PairofInt {
-        int smallest;
-        int largest;
+        private int smallest;
+        private int largest;
+        public int getSmallest(){
+            return smallest;
+        }
+        public void setSmallest(int value){
+            this.smallest = value;
+        }
+        public int getLargest(){
+            return largest;
+        }
+        public void setLargest(int value){
+            this.largest = value;
+        }
     }
 
     static PairofInt SmallestAndLargestNo(int arr[], int length) {
@@ -9,24 +21,24 @@ public class Solutions{
         int i;
 
         if (length == 1) {
-            object.largest = arr[0];
-            object.smallest= arr[0];
+            object.setLargest(arr[0]);
+            object.setSmallest(arr[0]);
             return object;
         }
 
         if (arr[0] > arr[1]) {
-            object.largest = arr[0];
-            object.smallest= arr[1];
+            object.setLargest(arr[0]);
+            object.setSmallest(arr[1]);
         } else {
-            object.largest = arr[1];
-            object.smallest= arr[0];
+            object.setLargest(arr[1]);
+            object.setSmallest(arr[0]);
         }
 
         for (i = 2; i < length; i++) {
-            if (arr[i] > object.largest) {
-            object.largest = arr[i];
-            } else if (arr[i] < object.smallest) {
-            object.smallest= arr[i];
+            if (arr[i] > object.getLargest) {
+            object.setLargest(arr[i]);
+            } else if (arr[i] < object.getSmallest) {
+            object.setSmallest(arr[i]);
             }
         }
 
@@ -37,7 +49,7 @@ public class Solutions{
         int distance[] = {1000, 11, 445, 1, 330, 3000};
         int length = 6;
         PairofInt Object = SmallestAndLargestNo(distance, length);
-        System.out.printf("\n Smallest Value is %d", Object.smallest);
-        System.out.printf("\n Largest Value is %d", Object.largest);
+        System.out.printf("\n Smallest Value is %d", Object.getSmallest);
+        System.out.printf("\n Largest Value is %d", Object.getLargest);
     }
 }
